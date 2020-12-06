@@ -10,19 +10,22 @@
         <div class="datos">
             <h2>Iniciar sesión</h2>
 
-            <input type="email" placeholder="Correo electrónico" asp-for="Email" /><br />
-            <input type="password" placeholder="Contraseña" asp-for="Password" /><br />
+            <input type="email" placeholder="Correo electrónico" required asp-for="Email" /><br />
+            <input type="password" placeholder="Contraseña" required asp-for="Password" /><br />
             <div class="check">
-                <input type="checkbox" id="mantenerSesion" name="mantenerSesion" value="True"/><label id="check" for="mantenerSesion">Mantener sesion iniciada</label><br />
+                <input type="checkbox" id="mantenerSesion" name="mantenerSesion" value="True" /><label >Mantener sesion iniciada</label><br />
 
             </div>
-            <div class="errores">
-                @Html.ValidationSummary()
-            </div>
+
+
+
             <a href="~/Home/RecuperarContraseña">Haz olvidado la contraseña?</a><br />
             <input type="submit" class="boton" value="Iniciar Sesión" />
 
         </div>
+        
+            @Html.ValidationSummary()
+        
         <div class="ir-registar">
             <h5>¿No tienes una cuenta?</h5><br />
             <a href="~/Home/Registrar">¡Regístrate!</a>

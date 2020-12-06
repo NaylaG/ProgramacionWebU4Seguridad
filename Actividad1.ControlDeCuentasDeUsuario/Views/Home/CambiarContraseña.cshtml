@@ -7,14 +7,13 @@
     <div class="contenedor">
         <div class="datos">
             <h2>Cambiar contraseña</h2>
-            <input hidden asp-for="Usuario.Id" value="@User.Claims.FirstOrDefault(x => x.Type == "Id").Value" />
-            <input type="password" placeholder="Contraseña Actual" asp-for="Usuario.Password" /><br />
-            <input type="password" placeholder="Nueva contraseña" asp-for="NuevaContraseña" /><br />
-            <input type="password" placeholder="Confirmar contraseña" asp-for="ConfirmarContraseña" /><br />
-            <p class="errores">
-                @Html.ValidationSummary()
-            </p>
+            <input hidden asp-for="Usuario.Id" required value="@User.Claims.FirstOrDefault(x => x.Type == "Id").Value" />
+            <input type="password" placeholder="Contraseña Actual" required asp-for="Usuario.Password" /><br />
+            <input type="password" placeholder="Nueva contraseña" required asp-for="NuevaContraseña" /><br />
+            <input type="password" placeholder="Confirmar contraseña" required asp-for="ConfirmarContraseña" /><br />
+
             <input type="submit" class="boton" value="Confirmar" />
         </div>
+        @Html.ValidationSummary()
     </div>
 </form>

@@ -38,24 +38,30 @@ namespace Actividad1.ControlDeCuentasDeUsuario.Controllers
 
         [HttpPost]
         [AllowAnonymous]
-        public IActionResult Registrar(Usuario nuevo)
+        public IActionResult Registrar(UsuarioViewModel vm)
         {
             try
             {
+                if(vm.Usuario.Password!= vm.ConfirmarContraseña)
+                {
+                    ModelState.AddModelError("", "No coiniciden las contraseñas");
+                }
                 UsuarioRepository repos = new UsuarioRepository(context);
                 
-                nuevo.Password= HashingHelper.GetHash(nuevo.Password);
-                nuevo.Codigo = GeneraCodigoHelper.GetCodigo();
-                repos.Insert(nuevo);
+                vm.Usuario.Password= HashingHelper.GetHash(vm.Usuario.Password);
+                Random r = new Random();
+                var codigo = r.Next(1000, 9999);
+                vm.Usuario.Codigo=codigo.ToString();               
+                repos.Insert(vm.Usuario);
 
                 //para confirmar correo
                 MailMessage message = new MailMessage();
                 message.From = new MailAddress("sistemascomputacionales7g@gmail.com", "Cuenta automatizada de Biblioteca Virtual");
-                message.Bcc.Add(nuevo.Email);
+                message.Bcc.Add(vm.Usuario.Email);
                 message.Subject = "Activar Cuenta";
                 string text = System.IO.File.ReadAllText(Environment.WebRootPath + "/Verificar.html");
                 //message.Body = text.Replace("{##correo##}", nuevo.Email);
-                message.Body = text.Replace("{##codigo##}", nuevo.Codigo);
+                message.Body = text.Replace("{##codigo##}", vm.Usuario.Codigo);
                 message.IsBodyHtml = true;
 
                 
@@ -71,7 +77,7 @@ namespace Actividad1.ControlDeCuentasDeUsuario.Controllers
             {
                 Repository<Usuario> repos = new Repository<Usuario>(context);
                 ModelState.AddModelError("", error.Message);
-                return View(nuevo);
+                return View(vm);
             }
         }
         
@@ -122,14 +128,11 @@ namespace Actividad1.ControlDeCuentasDeUsuario.Controllers
                     informacion.Add(new Claim(ClaimTypes.Role, "Usuario"));//tiene que ir el rol para poder autenticar
                     informacion.Add(new Claim("Id", user.Id.ToString()));
                     informacion.Add(new Claim("Correo", user.Email));
-                    //if (mantenerSesion == true)
-                    //{ informacion.Add(new Claim(ClaimTypes.IsPersistent, "true")); }
-                    //else
-                    //{ informacion.Add(new Claim(ClaimTypes.Expiration, "20")); }
+                    
                     informacion.Add(new Claim("Nombre",user.Username));
 
 
-                    //guardar los claimns para saber los datos
+                   
 
                     var claimidentity = new ClaimsIdentity(informacion, CookieAuthenticationDefaults.AuthenticationScheme);
                     var claimprincipal = new ClaimsPrincipal(claimidentity);
@@ -182,7 +185,9 @@ namespace Actividad1.ControlDeCuentasDeUsuario.Controllers
             {
                 UsuarioRepository repos = new UsuarioRepository(context);
                 var user = repos.GetByEmail(u.Email);
-
+                Random r = new Random();
+                var codigo = r.Next(1000, 9999);
+                user.Codigo = codigo.ToString();
 
                 MailMessage message = new MailMessage();
                 message.From = new MailAddress("sistemascomputacionales7g@gmail.com", "Cuenta automatizada de sistemas");
@@ -231,17 +236,17 @@ namespace Actividad1.ControlDeCuentasDeUsuario.Controllers
                 
                 if (usuario.Codigo != vm.Usuario.Codigo)
                 {
-                    //codigo incorrecto
+                    ModelState.AddModelError("", "El código es incorrecto");
                 }
 
                 if (vm.NuevaContraseña != vm.ConfirmarContraseña)
                 {
-                    //the passwords are differnt
+                    ModelState.AddModelError("", "Las contraseñas no coinciden");
                 }
-                if (usuario.Password == HashingHelper.GetHash(vm.NuevaContraseña))
-                {
-                    //the password can't be te same
-                }
+                //if (usuario.Password == HashingHelper.GetHash(vm.NuevaContraseña))
+                //{
+                //    ModelState.AddModelError("", "La contraseña no puede ser parecida a la anterior");
+                //}
 
                 usuario.Password = HashingHelper.GetHash(vm.NuevaContraseña);
                 repos.Update(usuario);
@@ -276,18 +281,18 @@ namespace Actividad1.ControlDeCuentasDeUsuario.Controllers
 
                 if (usuario.Password != HashingHelper.GetHash(vm.Usuario.Password))
                 {
-                    //se dice que la contrasena esta incorrecta
+                    ModelState.AddModelError("", "Contraseña Incorrecta");
                 }
 
 
                 if (vm.NuevaContraseña != vm.ConfirmarContraseña)
                 {
-                    //the passwords are differnt
+                    ModelState.AddModelError("", "Las contraseñas no coinciden");
                 }
-                //if (usuario.Password == HashingHelper.GetHash(vm.NuevaContraseña))
-                //{
-                //    //the password can't be te same
-                //}
+                if (usuario.Password == HashingHelper.GetHash(vm.NuevaContraseña))
+                {
+                    ModelState.AddModelError("", "La cotraseña no puede ser igual a la anterior");
+                }
 
                 usuario.Password = HashingHelper.GetHash(vm.NuevaContraseña);
                 repos.Update(usuario);

@@ -1,4 +1,4 @@
-﻿@model Actividad1.ControlDeCuentasDeUsuario.Models.Usuario;
+﻿@model Actividad1.ControlDeCuentasDeUsuario.Models.ViewModels.UsuarioViewModel;
 @{
     Layout = "_Layout";
 }
@@ -8,15 +8,14 @@
 
         <div class="datos">
             <h2>Registrar</h2>
-            <input type="text" placeholder="Nombre de Usuario" asp-for="Username" /><br />
-            <input type="email" placeholder="Correo electrónico" asp-for="Email" /><br />
-            <input type="password" placeholder="Elije una contraseña" asp-for="Password" /><br />
-            <input type="password" placeholder="Confirmar contraseña" /><br />
-            <p class="errores">
-                @Html.ValidationSummary()
-            </p>
+            <input type="text" placeholder="Nombre de Usuario" required asp-for="Usuario.Username" /><br />
+            <input type="email" placeholder="Correo electrónico" required asp-for="Usuario.Email" /><br />
+            <input type="password" placeholder="Elije una contraseña" required asp-for="Usuario.Password" /><br />
+            <input type="password" placeholder="Confirmar contraseña" required asp-for="ConfirmarContraseña" /><br />
+
             <input type="submit" value="Registrar" class="boton" />
 
         </div>
+        @Html.ValidationSummary()
     </div>
 </form>

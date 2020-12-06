@@ -113,12 +113,13 @@ a i {
         text-align: center;
         margin: auto;
     }
-
-    .errores{
-        display:block;
-        margin:0;
-        background-color:red;
-    }
+.validation-summary-errors ul {
+  list-style:none;
+}
+.validation-summary-errors li{
+    text-align: center;
+    color:red;
+}
 
     .contenedor h2{
         margin-bottom:20px;     

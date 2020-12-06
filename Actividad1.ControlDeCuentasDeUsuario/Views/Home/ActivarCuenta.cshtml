@@ -11,12 +11,13 @@
             <p>
                 Introduce el codigo que se te proporciono a traves de tu correo electronico.
             </p><br />
-            <input type="email" placeholder="correo electronico" asp-for="Email" /><br />
-            <input type="number" placeholder="Ingrese el código" asp-for="Codigo" /><br />
-            <p class="errores">
-                @Html.ValidationSummary()
-            </p>
+            <input type="email" placeholder="correo electronico" required asp-for="Email" /><br />
+            <input type="number" placeholder="Ingrese el código" required asp-for="Codigo" /><br />
+
             <input type="submit" value="Enviar" class="boton" />
         </div>
+
+
+        @Html.ValidationSummary()
     </div>
 </form>

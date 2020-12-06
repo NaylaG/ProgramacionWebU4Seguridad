@@ -20,7 +20,7 @@ namespace Actividad1.ControlDeCuentasDeUsuario.Repositories
         {
             if(Context.Usuario.Any(x=>x.Email==entidad.Email && x.Id != entidad.Id))
             {
-                throw new Exception("El usuario ya se encuentra registrado");
+                throw new Exception("Este correo ya se encuentra registrado");
             }
 
             return true;
