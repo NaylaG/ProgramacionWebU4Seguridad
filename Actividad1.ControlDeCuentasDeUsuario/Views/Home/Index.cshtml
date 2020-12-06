@@ -1,0 +1,12 @@
+﻿
+@{
+    Layout = "_LayoutIndex";
+}
+
+
+<div>
+    <h1>Bienvenido</h1>
+    <label><i class="fa fa-user"></i> Usuario: @User.Identity.Name @User.Claims.FirstOrDefault(x => x.Type == "Nombre").Value</label>
+   
+</div>
+

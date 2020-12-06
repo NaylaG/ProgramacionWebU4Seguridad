@@ -1,0 +1,16 @@
+﻿
+@{
+    ViewData["Title"] = "IniciarSesion";
+}
+
+<h1>IniciarSesion</h1>
+<form method="post" action="~/Home/IniciarSesion">
+    <label>Nombre de Usuario:</label>
+    <input type="text" name="username" /><br />
+    <label>Contrasena:</label>
+    <input type="password" name="password" /><br />
+    @Html.ValidationSummary()
+
+    <input type="submit" />
+</form>
+

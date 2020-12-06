@@ -1,0 +1,31 @@
+﻿
+@{
+   ViewData["Title"] = "Index";
+}
+
+<h1>Unidad 4</h1>
+<h2>Autenticacion y autorizacion</h2>
+<p>
+    Pagina principal<br />
+    Usuario conectado: @User.Identity.Name (@User.Claims.FirstOrDefault(x=>x.Type=="NombreCompleto").Value)
+    <a href="~/Home/CerrarSesion"> (Cerrar Sesión)</a>
+
+    <p>
+        <ol>
+
+            <li>Lista de calificaciones</li>
+            <li>Kardex</li>
+            <li>Horario</li>
+
+
+            @if (User.IsInRole("Maestro"))
+            {
+                <li>Capturar calificaciones</li>
+                <li>Capturar alumnos</li>
+            }
+
+        </ol>
+    
+    
+    </p>
+

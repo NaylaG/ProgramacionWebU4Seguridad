@@ -1,0 +1,20 @@
+﻿@model Actividad1.ControlDeCuentasDeUsuario.Models.Usuario
+@{
+    Layout = "_Layout";
+}
+
+<form method="post" asp-action="RecuperarContraseña" asp-controller="Home">
+
+    <div class="contenedor">
+        <div class="datos recuperar">
+            <h2>Recuperar Contraseña</h2>
+            <p>
+                Introduce tu correo electrónico  para poder recuperar tu cuenta.
+                Recibiras un correo donde podras restaurar tu contraseña.
+            </p><br />
+            <input type="email" placeholder="correo electronico" asp-for="Email"/><br />
+            <input type="submit" value="Enviar" class="boton" />
+        </div>
+    </div>
+</form>
+   

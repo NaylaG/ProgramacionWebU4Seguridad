@@ -1,0 +1,21 @@
+﻿@model Actividad1.ControlDeCuentasDeUsuario.Models.ViewModels.UsuarioViewModel
+@{
+    Layout = "_Layout";
+}
+
+<form method="post" asp-controller="Home" asp-action="NuevaContraseña">
+    <div class="contenedor">
+        <div class="datos">
+            <h2>Nueva contraseña</h2>
+            <input type="email" placeholder="Email" asp-for="Usuario.Email"/><br />
+            <input type="text" placeholder="Código" asp-for="Usuario.Codigo" /><br />
+            <input type="password" placeholder="Nueva contraseña"  asp-for="NuevaContraseña"/><br />
+            <input type="password" placeholder="Confirmar contraseña" asp-for="ConfirmarContraseña"/><br />
+         <div class="errores">
+                @Html.ValidationSummary()
+         </div>
+            <input type="submit" class="boton" value="Confirmar" />
+        </div>
+    </div>
+</form>
+

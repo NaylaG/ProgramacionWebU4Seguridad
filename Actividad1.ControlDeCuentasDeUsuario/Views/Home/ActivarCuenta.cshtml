@@ -1,0 +1,22 @@
+﻿@model Actividad1.ControlDeCuentasDeUsuario.Models.Usuario
+@{
+    Layout = "_Layout";
+}
+
+<form method="post" asp-action="ActivarCuenta" asp-controller="Home">
+
+    <div class="contenedor">
+        <div class="datos recuperar">
+            <h2>Verificar Cuenta</h2>
+            <p>
+                Introduce el codigo que se te proporciono a traves de tu correo electronico.
+            </p><br />
+            <input type="email" placeholder="correo electronico" asp-for="Email" /><br />
+            <input type="number" placeholder="Ingrese el código" asp-for="Codigo" /><br />
+            <p class="errores">
+                @Html.ValidationSummary()
+            </p>
+            <input type="submit" value="Enviar" class="boton" />
+        </div>
+    </div>
+</form>
