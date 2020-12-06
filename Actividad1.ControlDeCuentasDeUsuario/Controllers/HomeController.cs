@@ -190,9 +190,9 @@ namespace Actividad1.ControlDeCuentasDeUsuario.Controllers
                 user.Codigo = codigo.ToString();
 
                 MailMessage message = new MailMessage();
-                message.From = new MailAddress("sistemascomputacionales7g@gmail.com", "Cuenta automatizada de sistemas");
+                message.From = new MailAddress("sistemascomputacionales7g@gmail.com", "Cuenta automatizada de Biblioteca Virtual");
                 message.Bcc.Add(user.Email);
-                message.Subject = "Activar Cuenta";
+                message.Subject = "Restaurar Contraseña";
                 string text = System.IO.File.ReadAllText(Environment.WebRootPath + "/CorreoRecuperarContraseña.html");
                 message.Body = text.Replace("{##codigo##}", user.Codigo);
                 //message.Body = text.Replace("{##correo##}", user.Email);
@@ -237,11 +237,13 @@ namespace Actividad1.ControlDeCuentasDeUsuario.Controllers
                 if (usuario.Codigo != vm.Usuario.Codigo)
                 {
                     ModelState.AddModelError("", "El código es incorrecto");
+                    return View(vm);
                 }
 
                 if (vm.NuevaContraseña != vm.ConfirmarContraseña)
                 {
                     ModelState.AddModelError("", "Las contraseñas no coinciden");
+                    return View(vm);
                 }
                 //if (usuario.Password == HashingHelper.GetHash(vm.NuevaContraseña))
                 //{
@@ -282,16 +284,19 @@ namespace Actividad1.ControlDeCuentasDeUsuario.Controllers
                 if (usuario.Password != HashingHelper.GetHash(vm.Usuario.Password))
                 {
                     ModelState.AddModelError("", "Contraseña Incorrecta");
+                    return View(vm);
                 }
 
 
                 if (vm.NuevaContraseña != vm.ConfirmarContraseña)
                 {
                     ModelState.AddModelError("", "Las contraseñas no coinciden");
+                    return View(vm);
                 }
                 if (usuario.Password == HashingHelper.GetHash(vm.NuevaContraseña))
                 {
                     ModelState.AddModelError("", "La cotraseña no puede ser igual a la anterior");
+                    return View(vm);
                 }
 
                 usuario.Password = HashingHelper.GetHash(vm.NuevaContraseña);
