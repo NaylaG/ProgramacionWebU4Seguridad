@@ -11,7 +11,7 @@ namespace Actividad1.ControlDeCuentasDeUsuario
         public static string GetHash(string cadena)
         {
             var alg = SHA256.Create();
-            byte[] codificar = System.Text.Encoding.UTF8.GetBytes(cadena);
+            byte[] codificar = System.Text.Encoding.UTF8.GetBytes(cadena+"SistemaBiblioteca");
             byte[] hash = alg.ComputeHash(codificar);
 
             string res = "";
