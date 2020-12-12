@@ -188,7 +188,7 @@ namespace Actividad1.ControlDeCuentasDeUsuario.Controllers
                 Random r = new Random();
                 var codigo = r.Next(1000, 9999);
                 user.Codigo = codigo.ToString();
-
+                repos.Update(user);
                 MailMessage message = new MailMessage();
                 message.From = new MailAddress("sistemascomputacionales7g@gmail.com", "Cuenta automatizada de Biblioteca Virtual");
                 message.Bcc.Add(user.Email);
