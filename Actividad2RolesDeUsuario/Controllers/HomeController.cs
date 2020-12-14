@@ -134,7 +134,7 @@ namespace Actividad2RolesDeUsuario.Controllers
                     return View(nuevo);
                 }
                 MaestroRepository repo = new MaestroRepository(context);
-
+                //MANDA CORREO AL MAESTRO CON EL NOBRE DE USUARIO Y CONTRASEÑA
                 //MailMessage message = new MailMessage();
                 //message.From = new MailAddress("sistemascomputacionales7g@gmail.com", "Cuenta automatizada de ITESRC");
                 //message.Bcc.Add(nuevo.Email);
@@ -159,7 +159,7 @@ namespace Actividad2RolesDeUsuario.Controllers
                 ModelState.AddModelError("", m.Message);
                 return View(nuevo);
             }
-            //MANDA CORREO AL MAESTRO CON EL NOBRE DE USUARIO Y CONTRASEÑA
+            
            
         }         
 
