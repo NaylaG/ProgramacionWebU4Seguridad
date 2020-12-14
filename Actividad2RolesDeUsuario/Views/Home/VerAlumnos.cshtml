@@ -1,0 +1,51 @@
+﻿@model Actividad2RolesDeUsuario.Models.ViewModels.IndexViewModel
+@{
+    Layout = "_LayoutIndex";
+    int cuenta = 1;
+}
+
+<section>
+    <table>
+        <caption>
+            <h2>Lista de Alumnos </h2>
+            @if (Model.Maestro.Activo == 1)
+            {
+                <a href="~/Home/AgregarAlumno/@Model.Maestro.Clave">&#10010; Agregar nuevo</a>
+            }
+        </caption>
+        <thead>
+            <tr>
+                <th style="width:1%;">#</th>
+                <th style="width:50%;">Nombre</th>
+                <th style="width:30%;">Numero de Control</th>
+                <th style="width:19%;" colspan="2">Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.ListaAlumnos)
+            {
+                <tr>
+                    <td>@(cuenta++)</td>
+                    <td>@item.Nombre</td>
+                    <td>@item.NumControl</td>
+                    <td><a href="~/Home/EditarAlumno/@item.Id">&#9998;</a></td>
+                    <td><a href="javascript:eliminar(@item.Id)">&#10008;</a></td>
+                </tr>
+            }
+
+
+        </tbody>
+    </table>
+
+    <form method="post" action="~/Home/EliminarAlumno">
+            <input type="hidden" name="Id" id="alumnoid" />
+        </form>
+        <script>
+                    function eliminar(id) {
+                        if (confirm('Esta seguro de eliminar el alumno seleccionado?')) {
+                            document.getElementById("alumnoid").value = id;
+                            document.querySelector("form").submit();
+                        }
+                    }
+        </script>
+</section>

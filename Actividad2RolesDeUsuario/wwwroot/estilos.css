@@ -1,0 +1,237 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+
+/*TODAS LAS PAGINAS*/
+
+.contenedor, .contenedorinicio {
+    background-color: rgba(14, 180, 147,.2);
+    height: 100vh;
+    padding: 8vw;
+}
+.contenedorinicio {
+    background-color: white;
+}
+    .contenedorinicio label, .contenedorinicio h1 {
+        color: dimgray;
+    }
+
+.menu {
+    background-color: rgb(14, 180, 147);
+    height: 50px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+
+    .menu ol {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        
+        height: 50px;
+    }
+
+        .menu ol ul {
+            display: none;
+        }
+
+    .menu > ol > li {
+        float: right;
+        width: 170px;
+        height: 50px;
+        
+    }
+
+        .menu > ol > li:hover {
+            background-color: rgb(134, 200, 197);
+        }
+
+     .menu > ol > li > a {
+            color: white;
+            text-decoration: none;
+            text-align: center;
+            line-height: 50px;
+       
+            display: block;
+     }
+
+a i {
+    margin-right: 5px;
+    width: 20px;
+    display: inline-block;
+    text-align: center;
+}
+
+.menu > ol > li:hover ul {
+    display: block;
+}
+
+.menu ol li ul {
+    background-color: whitesmoke;
+    list-style: none; 
+    padding: 0;
+    margin: 0;
+   
+    width: 170px;
+}
+
+    .menu ol li ul li a {
+        color: black;
+        height: 30px;
+        line-height:30px;
+        font-size: small;
+        display: block;
+        text-decoration: none;
+        padding: 2px;
+    }
+
+        .menu ol li ul li a:hover {
+            background-color: lightgray;
+        }
+
+
+    .contenedor div, .contenedor .datos{
+        background-color:snow; 
+        width: 40vw;
+        margin: auto;
+        align-content: center;
+        padding: 25px;
+    }
+
+
+.contenedor .recuperar {
+    width: 50vw;
+}
+    .datos, .contenedor .ir-registar {
+        display: block;
+        text-align: center;
+        margin: auto;
+    }
+.validation-summary-errors ul {
+  list-style:none;
+}
+.validation-summary-errors li{
+    text-align: center;
+    color:red;
+}
+
+    .contenedor h2{
+        margin-bottom:20px;     
+    }
+.datos input, .contenedor input, .datos .check {
+    height: 45px;
+    width: 25vw;
+    padding: 10px;
+    font-size: medium;
+    margin-bottom:10px;
+}
+.datos .boton, .contenedor .boton {
+    width: 150px;
+    margin: auto;
+    margin-top: 15px;
+    background-color: rgb(14, 180, 147);
+    border-style: hidden;
+    color: white;
+    font-weight: 700;
+}
+    .datos .boton:hover, .contenedor .boton:hover {
+        background-color: rgb(134, 200, 197);
+    }
+
+.contenedor .ir-registar h5, .contenedor .ir-registar a {
+    color:black;
+    margin: 0;
+    font-size: small;
+}
+.contenedor .ir-registar a {
+    color: #456aab;
+}
+
+.datos p{
+    text-align:justify;
+
+}
+
+
+.datos .check input {
+    width:20px;
+    height: 20px;
+    margin-right:10px;
+}
+
+/*tabla*/
+section {
+    width: 100%;
+   box-shadow: 1px 1px 10px;
+    min-height: 400px;
+    background-color: white;
+    margin: 30px 0 0 0;
+    padding-bottom: 20px;
+}
+
+table {
+    width: 100%;
+    border-spacing: 0;
+}
+
+caption, .caption {
+    background-color: darkcyan;
+    text-align: left;
+    padding-bottom: 15px;
+    border-radius: 3px 3px 0 0;
+    height: 50px;
+}
+
+
+    caption h2, .caption h2 {
+        color: white;
+        margin: 10px;
+        font-size: x-large;
+        font-weight: normal;
+        line-height: 50px;
+        float: left;
+    }
+
+    caption a {
+        height: 35px;
+        display: block;
+        float: right;
+        margin: 10px;
+        background-color: midnightblue;
+        line-height: 35px;
+        -moz-box-sizing: border-box;
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+        font-size: small;
+        text-decoration: none;
+        color: white;
+        padding: 0 10px;
+    }
+
+th {
+    text-align: left;
+    padding: 10px;
+    font-size: small;
+    border-bottom: 1px solid lightgray;
+}
+
+tr {
+    height: 50px;
+}
+
+td {
+    padding: 10px;
+    border-bottom: 1px solid lightgray;
+}
+
+    td a {
+        text-decoration: none;
+        color: darkslateblue;
+        font-size: medium;
+    }

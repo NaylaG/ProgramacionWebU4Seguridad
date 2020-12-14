@@ -1,0 +1,47 @@
+﻿@model Actividad2RolesDeUsuario.Models.ViewModels.IndexViewModel
+@{
+    Layout = "_LayoutIndex";
+    int cuenta = 1;
+}
+
+<section>
+    <table>
+        <caption>
+            <h2>Lista de Maestros </h2>
+            <a href="~/Home/AgregarMaestro">&#10010; Agregar nuevo</a>
+        </caption>
+        <thead>
+            <tr>
+                <th style="width:1%;">#</th>
+                <th style="width:40%;">Nombre</th>
+                <th style="width:25%;">Clave de Maestro</th>
+                <th style="width:34%;" colspan="5">Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.ListaMaestros)
+            {
+            <tr>
+                <td>@(cuenta++)</td>
+                <td>@item.Nombre</td>
+                <td>@item.Clave</td>
+                <td><a href="~/Home/EditarMaestro/@item.Id">Editar&#9998;</a></td>
+                @if (item.Activo == 0)
+                {
+                    <td><a href="~/Home/ActivarMaestro/@item.Id" style="color:seagreen;">Activar &#10003;</a></td>
+                }
+                else
+                {
+                    <td><a href="~/Home/DesactivarMaestro/@item.Id" style="color:darkred;" >Desactivar</a></td>
+                }
+                <td><a href="~/Home/VerAlumnos/@item.Clave">Ver Grupo</a></td>
+                <td><a href="~/Home/CambiarContrasena/@item.Id">Cambiar Contraseña</a></td>
+               
+            </tr>
+            }
+
+
+        </tbody>
+    </table>
+
+</section>

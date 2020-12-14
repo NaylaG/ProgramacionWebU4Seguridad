@@ -1,0 +1,20 @@
+﻿@model Actividad2RolesDeUsuario.Models.Maestro
+@{
+    Layout = "_Layout";
+}
+
+<form method="post" asp-action="ActivarMaestro" asp-controller="Home">
+    <div class="contenedor">
+
+        <div class="datos">
+            <h2>Activar</h2>
+            <input type="text" asp-for="Id" hidden/>
+            <label>Desea activar el docente: @Model.Nombre</label><br />
+            <input type="submit" value="Activar" class="boton" />
+            <a href="~/Home/VerMaestros"><input type="button" value="Cancelar" class="boton" /></a>
+
+
+        </div>
+        @Html.ValidationSummary()
+    </div>
+</form>

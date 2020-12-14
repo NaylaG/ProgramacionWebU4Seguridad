@@ -1,0 +1,15 @@
+﻿
+@{
+    Layout = "_LayoutIndex";
+}
+
+<div>
+    <h1>Bienvenido</h1>
+    <br />
+
+    <label><i class="fa fa-user"></i> <b>Usuario:</b> @User.Identity.Name</label><br /> <br />
+    @if (User.IsInRole("Maestro"))
+    {
+        <label><b>Nombre:</b> @User.Claims.FirstOrDefault(x => x.Type == "Nombre").Value</label>
+    }
+</div>

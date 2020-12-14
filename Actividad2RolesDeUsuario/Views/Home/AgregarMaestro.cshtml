@@ -1,0 +1,22 @@
+﻿@model Actividad2RolesDeUsuario.Models.Maestro
+@{
+    Layout = "_Layout";
+}
+
+<form method="post" asp-action="AgregarMaestro" asp-controller="Home">
+    <div class="contenedor">
+
+        <div class="datos">
+            <h2>Agregar Maestro</h2>
+            <input type="text" placeholder="Nombre" required asp-for="Nombre" /><br />
+            <input type="text" placeholder="Nombre de Usuario" required asp-for="Username" /><br />
+            <input type="password" placeholder="Contraseña" required asp-for="Password" /><br />
+            <input type="password" placeholder="Confirmar Contraseña" required id="confirmaContrasena" name="confirmaContrasena"/><br />
+            <input type="text" placeholder="Clave" required asp-for="Clave" /><br />
+            <input type="email" placeholder="Correo electronico" required asp-for="Email" /><br />
+            <input type="submit" value="Agregar Maestro" class="boton" />
+            <a href="~/Home/VerMaestros"><input type="button" value="Cancelar" class="boton" /></a>
+        </div>
+        @Html.ValidationSummary()
+    </div>
+</form>

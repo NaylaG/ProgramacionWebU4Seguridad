@@ -1,0 +1,35 @@
+﻿@model Actividad2RolesDeUsuario.Models.Maestro
+@{
+    Layout = "_Layout";
+}
+
+<form method="post" asp-action="EditarMaestro" asp-controller="Home">
+    <div class="contenedor">
+
+        <div class="datos">
+            <h2>Editar</h2>
+            <input hidden asp-for="Id" />
+            <label>Nombre</label><br />
+            <input type="text" placeholder="Nombre" required asp-for="Nombre" /><br />
+            <label>Username</label><br />
+            <input type="text" placeholder="Nombre de Usuario" required asp-for="Username" /><br />
+            @*<input type="password" hidden placeholder="Contraseña" asp-for="Password" /><br />*@
+            <label>Clave</label><br />
+            <input type="text" placeholder="Clave" required asp-for="Clave" /><br />
+            <label>Email</label><br />
+            <input type="email" placeholder="correo electronico" required asp-for="Email" /><br />
+            <input type="submit" value="Editar Maestro" class="boton" />
+            @if (User.IsInRole("Director"))
+            {
+                <a href="~/Home/VerMaestros"><input type="button" value="Cancelar" class="boton" /></a>
+            }
+            @if (User.IsInRole("Maestro"))
+            {
+                <a href="~/Home/Index"><input type="button" value="Cancelar" class="boton" /></a>
+            }
+
+
+        </div>
+        @Html.ValidationSummary()
+    </div>
+</form>

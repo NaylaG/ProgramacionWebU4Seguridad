@@ -1,0 +1,24 @@
+﻿@model Actividad2RolesDeUsuario.Models.Alumno
+@{
+    Layout = "_Layout";
+}
+
+<form method="post" asp-action="EditarAlumno" asp-controller="Home">
+    <div class="contenedor">
+
+        <div class="datos">
+            <h2>Editar Alumno</h2>
+            <input asp-for="Id" hidden/>
+            <label>Nombre</label><br />
+            <input type="text" placeholder="Nombre de Usuario" required asp-for="Nombre" /><br />
+            <label>Numero de Control</label><br />
+            <input type="text" placeholder="Nombre de Usuario" required asp-for="NumControl" /><br />
+            @*<input type="password" placeholder="Clave de Maestro"  asp-for="ClaveMaestro" /><br />*@
+
+            <input type="submit" value="Editar Alumno" class="boton" />
+            <a href="~/Home/VerAlumnos/@Model.ClaveMaestro"><input type="button" value="Cancelar" class="boton" /></a>
+
+        </div>
+        @Html.ValidationSummary()
+    </div>
+</form>

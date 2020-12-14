@@ -1,0 +1,27 @@
+﻿
+@{
+    Layout = "_Layout";
+}
+
+<form method="post" asp-action="IniciarSesion" asp-controller="Home">
+
+    <div class="contenedor">
+
+        <div class="datos">
+            <h2>Iniciar sesión</h2>
+
+            <input type="text" placeholder="Ingrese el nombre de usuario" required id="usuario" name="usuario" /><br />
+            <input type="password" placeholder="Contraseña" required id="contrasena"  name="contrasena"/><br />
+            <div class="check">
+                <input type="checkbox" id="mantenerSesion" name="mantenerSesion" value="True" /><label>Mantener sesion iniciada</label><br />
+            </div>
+          
+            <input type="submit" class="boton" value="Iniciar Sesión" />
+
+        </div>
+
+        @Html.ValidationSummary()
+
+        
+    </div>
+</form>

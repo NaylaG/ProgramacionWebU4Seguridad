@@ -1,0 +1,57 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <link href="~/estilos.css" rel="stylesheet" />
+    <link href="~/css/font-awesome.min.css" rel="stylesheet" />
+    <title>Inicio</title>
+</head>
+<body>
+    <header>
+        <nav class="menu">
+            <ol>
+
+                <li>
+
+                    <a href="~/"><i class="fa fa-bars"></i>Menu</a>
+                    <ul>
+                        <li><a href="~/Home/Index"><i class="fa fa-home"></i>Inicio</a></li>
+                        @*@if (User.IsInRole("Maestro"))
+                        {
+                            <li><a href="~/Home/EditarMaestro/@User.Claims.FirstOrDefault(x => x.Type == "Id").Value"><i class="fa fa-edit"></i>Editar</a></li>
+                        }*@
+                            <li> <a href="~/Home/CerrarSesion"><i class="fa fa-sign-out"></i>Cerrar Sesión</a></li>
+
+                        </ul>
+                </li>
+                @if (User.IsInRole("Director"))
+                {
+                    <li> <a href="~/Home/VerMaestros">Maestros</a></li>
+                }
+                @if (User.IsInRole("Maestro"))
+                {
+                    <li><a href="~/Home/VerAlumnos/@User.Claims.FirstOrDefault(x => x.Type == "Clave").Value">Alumnos</a></li>
+                    
+                }
+
+            </ol>
+        </nav>
+    </header>
+    <main class="contenedorinicio">
+        @RenderBody()
+    </main>
+
+</body>
+</html>
+
+@*<form method="post" action="~/Home/EliminarCuenta">
+    <input type="hidden" name="email" id="userEmail" value="@User.Claims.FirstOrDefault(x => x.Type == "Correo").Value" />
+</form>
+<script>
+                function eliminar() {
+                    if (confirm('Esta seguro de eliminar su cuenta permanentemente?')) {
+                        document.querySelector("form").submit();
+                    }
+                }
+</script>*@

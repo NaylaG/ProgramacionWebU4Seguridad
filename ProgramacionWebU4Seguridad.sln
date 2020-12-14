@@ -7,6 +7,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProgramacionWebU4Seguridad"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Actividad1.ControlDeCuentasDeUsuario", "Actividad1.ControlDeCuentasDeUsuario\Actividad1.ControlDeCuentasDeUsuario.csproj", "{55E538AD-54B2-4990-AF85-C79762D42334}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Actividad2RolesDeUsuario", "Actividad2RolesDeUsuario\Actividad2RolesDeUsuario.csproj", "{DE990343-1A06-4002-9595-3E54C149E015}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{55E538AD-54B2-4990-AF85-C79762D42334}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{55E538AD-54B2-4990-AF85-C79762D42334}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{55E538AD-54B2-4990-AF85-C79762D42334}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DE990343-1A06-4002-9595-3E54C149E015}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DE990343-1A06-4002-9595-3E54C149E015}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DE990343-1A06-4002-9595-3E54C149E015}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DE990343-1A06-4002-9595-3E54C149E015}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

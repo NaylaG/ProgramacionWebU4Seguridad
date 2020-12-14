@@ -1,0 +1,20 @@
+﻿@model Actividad2RolesDeUsuario.Models.Maestro
+@{
+    Layout = "_Layout";
+}
+
+<form method="post" asp-controller="Home" asp-action="CambiarContrasena">
+    <div class="contenedor">
+        <div class="datos">
+            <h2>Cambiar contraseña</h2>
+            <input hidden asp-for="Id" required />
+
+            <input type="password" placeholder="Nueva contraseña" required asp-for="Password" /><br />
+            <input type="password" placeholder="Confirmar contraseña" required id="confirmaContrasena" name="confirmaContrasena"/><br />
+
+            <input type="submit" class="boton" value="Confirmar" />
+            <a href="~/Home/VerMaestros"><input type="button" value="Cancelar" class="boton" /></a>
+        </div>
+        @Html.ValidationSummary()
+    </div>
+</form>
